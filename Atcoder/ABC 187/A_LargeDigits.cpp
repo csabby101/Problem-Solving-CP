@@ -24,9 +24,5 @@ int main()
 	int A, B;
 	cin >> A >> B;
 
-
-	if(summ(A) > summ(B))
-		cout << summ(A);
-	else
-		cout << summ(B);
+	cout << max(summ(A), summ(B));
 }
