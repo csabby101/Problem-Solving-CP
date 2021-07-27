@@ -27,10 +27,7 @@ int main()
 
 	for (int i = 0; i < szz; i++)
 	{
-		if (count == 5)
-			break;
-
-		else if (v[m[s[i]]] == q && i > v[m[s[i]] - 1])
+		if (v[m[s[i]]] == q && i > v[m[s[i]] - 1])
 		{
 			v[m[s[i]]] = i;
 			count++;
@@ -41,9 +38,11 @@ int main()
 			v[3] = i;
 			count++;
 		}
+
+		if (count == 5)
+			break;
 	}
 
-	// cout << count << endl;
 	if (count == 5)
 		cout << "YES";
 	else
