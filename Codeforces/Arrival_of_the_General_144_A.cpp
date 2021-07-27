@@ -1,7 +1,4 @@
 // https://codeforces.com/problemset/problem/144/A
-// complicated vector approach using reverse iterators 
-// and converting reverse iterator to nomal iterator using .base() function at line 25 
-// For reference : https://stackoverflow.com/questions/2037867/can-i-convert-a-reverse-iterator-to-a-forward-iterator
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -21,12 +18,21 @@ int main()
 		cin >> x;
 		v[i] = x;
 	}
+	
 	int steps = 0;
-	auto minn = (min_element(v.rbegin(), v.rend()) + 1).base();
- 
-	for (auto it = minn; it != --v.end(); it++)
+	int min = v[n - 1], index = n - 1;
+	for (int i = n - 1; i >= 0; i--)
 	{
-		swap(*it, *(it + 1));
+		if (v[i] < min)
+		{
+			min = v[i];
+			index = i;
+		}
+	}
+ 
+	for (int i = index; i < n - 1; i++)
+	{
+		swap(v[i], v[i + 1]);
 		steps++;
 	}
  
