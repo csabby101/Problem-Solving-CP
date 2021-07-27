@@ -10,21 +10,18 @@ int main()
 	string t = "hello", s = "";
 	cin >> s;
 
-	int count = 0, j = 0, sz = s.size();
+	int j = 0, sz = s.size();
 
 	for (int i = 0; i < sz; i++)
 	{
 		if(s[i] == t[j])
-		{
-			count++;
 			j++;
-		}
 
-		if(count == 5)
+		if(j == 5)
 			break;
 	}
 
-	if (count == 5)
+	if (j == 5)
 		cout << "YES";
 	else
 		cout << "NO";
