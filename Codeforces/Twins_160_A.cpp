@@ -1,7 +1,7 @@
+// https://codeforces.com/problemset/problem/160/A
+
 #include <bits/stdc++.h>
 using namespace std;
-
-#define endl "\n"
 
 int main()
 {
