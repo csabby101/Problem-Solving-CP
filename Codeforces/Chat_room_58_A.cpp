@@ -3,43 +3,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define MP make_pair
-
 int main()
 {
 	ios::sync_with_stdio(false); cin.tie(NULL);
 
-	string s;
+	string t = "hello", s = "";
 	cin >> s;
-	int szz = s.size();
-	unordered_map<int, char> m;
-	m['h'] = 1;
-	m['e'] = 2;
-	m['l'] = 4;
-	m['o'] = 5;
 
-	int q = szz + 1;
-	unordered_map<int, int> v = {MP(0, -1), MP(1, q),
-	                             MP(2, q), MP(3, q),
-	                             MP(4, q), MP(5, q)};
+	int count = 0, j = 0, sz = s.size();
 
-	int count = 0;
-
-	for (int i = 0; i < szz; i++)
+	for (int i = 0; i < sz; i++)
 	{
-		if (v[m[s[i]]] == q && i > v[m[s[i]] - 1])
+		if(s[i] == t[j])
 		{
-			v[m[s[i]]] = i;
 			count++;
+			j++;
 		}
 
-		else if (s[i] == 'l' && v[3] == q && i > v[2])
-		{
-			v[3] = i;
-			count++;
-		}
-
-		if (count == 5)
+		if(count == 5)
 			break;
 	}
 
