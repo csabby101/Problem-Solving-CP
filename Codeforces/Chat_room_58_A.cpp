@@ -1,11 +1,8 @@
+// https://codeforces.com/problemset/problem/58/A
+
 #include <bits/stdc++.h>
 using namespace std;
 
-#define endl "\n"
-#define ll long long
-#define F first
-#define S second
-#define PB push_back
 #define MP make_pair
 
 int main()
@@ -21,37 +18,33 @@ int main()
 	m['l'] = 4;
 	m['o'] = 5;
 
-	int q = szz + 5;
-	unordered_map<int, int> v;
-	v[1] = q;
-	v[2] = q;
-	v[3] = q;
-	v[4] = q;
-	v[5] = q;
+	int q = szz + 1;
+	unordered_map<int, int> v = {MP(0, -1), MP(1, q),
+	                             MP(2, q), MP(3, q),
+	                             MP(4, q), MP(5, q)};
+
 	int count = 0;
-	
+
 	for (int i = 0; i < szz; i++)
 	{
-		if(s[i] == 'h' && v[1] == q)
-		{
-			v[1] = i;
-			count++;
-		}
+		if (count == 5)
+			break;
 
-		else if(s[i] == 'l' && v[3] == q && i > v[2])
-		{
-			v[3] = i;
-			count++;
-		}
-		else if(v[m[s[i]]] == q && i > v[m[s[i]] - 1])
+		else if (v[m[s[i]]] == q && i > v[m[s[i]] - 1])
 		{
 			v[m[s[i]]] = i;
 			count++;
 		}
+
+		else if (s[i] == 'l' && v[3] == q && i > v[2])
+		{
+			v[3] = i;
+			count++;
+		}
 	}
 
-	//cout << count << endl;
-	if(count == 5)
+	// cout << count << endl;
+	if (count == 5)
 		cout << "YES";
 	else
 		cout << "NO";
