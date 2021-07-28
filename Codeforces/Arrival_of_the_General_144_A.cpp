@@ -10,34 +10,31 @@ int main()
 	int n;
 	cin >> n;
  
-	vector<int> v(n);
+	int arr[n];
+	int min = INT_MAX, index_min = 0;
+	int max = INT_MIN, index_max = 0;
  
 	for (int i = 0; i < n; i++)
 	{
 		int x;
 		cin >> x;
-		v[i] = x;
-	}
-	
-	int steps = 0;
-	int min = v[n - 1], index = n - 1;
-	for (int i = n - 1; i >= 0; i--)
-	{
-		if (v[i] < min)
+		arr[i] = x;
+		if(x > max)
 		{
-			min = v[i];
-			index = i;
+			max = x;
+			index_max = i;
+		}
+		if(x <= min)
+		{
+			min = x;
+			index_min = i;
 		}
 	}
- 
-	for (int i = index; i < n - 1; i++)
-	{
-		swap(v[i], v[i + 1]);
-		steps++;
-	}
- 
-	auto max = max_element(v.begin(), v.end());
-	steps += max - v.begin();
- 
-	cout << steps;
+
+	int steps = index_max + (n - 1 - index_min);
+	
+	if(index_max > index_min)
+		cout << steps - 1;
+ 	else
+		cout << steps;
 }
