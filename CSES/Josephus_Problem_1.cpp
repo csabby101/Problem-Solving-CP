@@ -15,7 +15,7 @@ int main()
 
 	int count = 0, i = 1, death = 0, index = 0;
 
-	while (count != n - 1)
+	while (count != n)
 	{
 		index = ((i - 1) % n) + 1;
 
@@ -37,9 +37,4 @@ int main()
 
 		i++;
 	}
-
-	if (index == n)
-		cout << 1;
-	else
-		cout << index + 1;
 }
