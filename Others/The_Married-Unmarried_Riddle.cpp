@@ -1,5 +1,5 @@
 // ICPC Amritapuri Prelims 2021 : Problem E
-// https://codedrills.io/contests/icpc-amritapuri-2020-preliminary-round/problems/the-married-unmarried-riddle
+// https://codedrills.io/problems/the-married-unmarried-riddle
 
 #include <bits/stdc++.h>
 using namespace std;
