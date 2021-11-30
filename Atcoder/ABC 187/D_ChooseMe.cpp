@@ -16,7 +16,7 @@ bool sortbysum_desc(pair<int, int> &a, pair<int, int> &b)
 
 	// what I actually did in the beginning is given below
 	// ! return (a.second + a.first) > (b.second + b.first);
-	// ! refer notes at the bottom for details
+	// ! refer the readme section for this contest folder on the repo
 }
 
 signed main()
@@ -39,7 +39,7 @@ signed main()
 
 	// for (auto &val : v)
 	// {
-	// 	cout << val.first << ' ' << val.second << endl;
+	// 		cout << val.first << ' ' << val.second << endl;
 	// }
 
 	int arrf[n + 10];
@@ -70,38 +70,3 @@ signed main()
 
 	cout << count;
 }
-
-// !!!
-// Messed up several test cases due to initial approach of sorting on the basis of a[i] + b[i]
-// check out D_187_my_issues.txt in the directory for comparisons
-
-// how my initial comparator looked like --
-// 	bool sortbysum_desc(pair<int, int> &a, pair<int, int> &b)
-// 	{
-// 		if(a == b)
-// 			return false;
-// 		else if((a.second + a.first) == (b.second + b.first))
-// 			return a.first > b.first;
-
-// 		return (a.second + a.first) > (b.second + b.first);
-// 	}
-
-// test case for why I added line 83 and 84 initially, 
-// which could be removed later as inclusive by line 15 in the working code
-// 6
-// 5 3 
-// 2 5
-// 6 1
-// 3 3
-// 3 3
-// 3 3
-
-
-// Now, consider the test case given below, jispe mera uppar wala code phat gaya :
-// 3
-// 1 4
-// 3 1
-// 2 0
-
-// pleej refer this thread --> https://codeforces.com/blog/entry/86254?#comment-742051
-// and this :) --> https://codeforces.com/blog/entry/86254?#comment-742102
