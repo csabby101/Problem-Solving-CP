@@ -61,59 +61,26 @@ void sarthak()
     int n;
     cin >> n;
 
-    vector<int> v(n, 0), vc(n, 0);
-    int index = 1, diff = 1000, diff_i;
+    vector<int> v(n, 0), d(n - 1, 0);
+    int diff_i = 0, diff = 0, maxx = 1000;
 
-    for (int i = 0; i < n; i++)
+    cin >> v[0];
+
+    for (int i = 1; i < n; i++)
     {
-        int x;
-        cin >> x;
+        cin >> v[i];
 
-        vc[i] = v[i] = x;
+        d[i] = v[i] - v[i - 1];
 
-        if (i > 1)
-        {
-            diff_i = v[i] - v[i - 1];
-            
-            if (diff_i < diff)
-            {
-                diff = diff_i;
-                index = i - 1;
-            }
-        }
-    }
-    
-    if (n == 3)
-    {
-        cout << v[n - 1] - v[0];
-        return;
+        diff = max(diff, d[i]);
     }
 
-    auto it = v.begin() + index;
-    v.erase(it);
-
-    auto it2 = vc.begin() + index + 1;
-    vc.erase(it2);
-    
-    int diff1 = 0;
-    for (int i = 0; i < v.size(); i++)
+    for (int i = 2; i < n; i++)
     {
-        diff_i = v[i] - v[i - 1];
-
-        if (diff_i > diff1)
-            diff1 = diff_i;
+        maxx = max(min(d[i] + d[i - 1], maxx), diff);
     }
 
-    int diff2 = 0;
-    for (int i = 0; i < vc.size(); i++)
-    {
-        diff_i = vc[i] - vc[i - 1];
-
-        if (diff_i > diff2)
-            diff2 = diff_i;
-    }
-
-    cout << min(diff1, diff2);
+    cout << maxx;
 }
 
 /*___________________________________________________________________________________________________________________________*/
