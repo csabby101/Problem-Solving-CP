@@ -61,52 +61,26 @@ void sarthak()
     int n;
     cin >> n;
 
-    vector<vector<char> > v(n, vector<char> (n));
+    unordered_set<char> s_x, s_o;
 
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            cin >> v[i][j];
+            char c;
+            cin >> c;
+            
+            if(j == i || j == n - 1 - i)
+                s_x.insert(c);
+            else
+                s_o.insert(c);
         }
     }
 
-    char c = v[0][0], c_o = v[0][1];
-
-    if (c == c_o)
-    {
+    if(s_x.size() * s_o.size() == 1 && s_o != s_x)
+        cout << "YES";
+    else
         cout << "NO";
-        return;
-    }
-
-
-    for (int i = 0, j = n - 1, k = 0; i < n, j >= 0, k < n; i++, j--, k++)
-    {
-        if (v[i][k] != c || v[i][j] != c)
-        {
-            cout << "NO";
-            return;
-        }
-    }
-
-    int others = (n * n) - (2 * n - 1), other = 0;
-
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            if (v[i][j] == c_o)
-                other++;
-        }
-    }
-
-    if (other != others)
-    {
-        cout << "NO";
-        return;
-    }
-
-    cout << "YES";
 }
 
 /*___________________________________________________________________________________________________________________________*/
