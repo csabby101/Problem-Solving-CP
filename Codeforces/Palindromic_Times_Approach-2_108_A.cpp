@@ -64,31 +64,13 @@ void sarthak()
 
     for (int i = H; i < 24; i++)
     {
-        string hour = to_string(i);
-        if (hour.size() == 1)
-        {
-            char temp = hour[0];
-            hour[0] = '0';
-            hour.PB(temp);
-        }
-
+        int rev = (i % 10) * 10 + i / 10;
         for (; j < 60; j++)
         {
-            string minute = to_string(j);
-
-            if (minute.size() == 1)
+            if (rev == j)
             {
-                char temp = minute[0];
-                minute[0] = '0';
-                minute.PB(temp);
-            }
-
-            reverse(minute.begin(), minute.end());
-
-            if (minute == hour)
-            {
-                reverse(minute.begin(), minute.end());
-                cout << hour << ':' << minute;
+                cout << setfill('0') << setw(2) << i << ':';
+                cout << setfill('0') << setw(2) << rev;
                 return;
             }
         }
