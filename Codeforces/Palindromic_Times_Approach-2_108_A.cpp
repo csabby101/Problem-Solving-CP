@@ -57,11 +57,9 @@ template <class T, class V> void _print(unordered_map <T, V> v) {cerr << "[ "; f
 
 void sarthak()
 {
-    string s;
-    cin >> s;
-
-    int H = (s[1] - '0') + 10 * (s[0] - '0');
-    int M = (s[4] - '0') + 10 * (s[3] - '0');
+    int H, M;
+    scanf("%d:%d", &H, &M);
+    
     int j = M + 1;
 
     for (int i = H; i < 24; i++)
