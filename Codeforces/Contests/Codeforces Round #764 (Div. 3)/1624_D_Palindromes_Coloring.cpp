@@ -62,7 +62,7 @@ void sarthak()
     cin >> n >> k;
 
     unordered_map<char, int> m;
-    int eve = 0, singles = n;
+    int eve = 0;
 
     for (int i = 0; i < n; i++)
     {
@@ -74,30 +74,13 @@ void sarthak()
             eve++;
     }
 
-    vector<int> v(k);
+    int distributes = (eve / k) * 2;
+    int singles = n - (distributes * k);
 
-    if (eve >= k)
-    {
-        for (int i = 0; i < k; i++)
-        {
-            v[i] += (eve / k) * 2;
-        }
+    if(singles >= k)    
+        distributes++;
 
-        singles -= (eve / k) * k * 2;
-    }
-
-    for (int i = 0; i < k; i++)
-    {
-        if (singles)
-        {
-            v[i]++;
-            singles--;
-        }
-        else
-            break;
-    }
-
-    cout << v[k - 1] << endl;
+    cout << distributes << endl;
 }
 
 /*___________________________________________________________________________________________________________________________*/
