@@ -61,16 +61,8 @@ void sarthak()
     string s;
     cin >> s;
 
-    multiset<char> ms;
-
-    for (int i = 0; i < s.size(); i++)
-    {
-        ms.insert(s[i]);
-    }
-
-    for(auto &v : ms)
-        cout << v;
-    cout << endl;
+    sort(s.begin(), s.end());
+    cout << s << endl;
 }
 
 /*___________________________________________________________________________________________________________________________*/
