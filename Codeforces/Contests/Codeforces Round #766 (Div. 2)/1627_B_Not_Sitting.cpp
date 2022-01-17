@@ -62,7 +62,7 @@ void sarthak()
     int n, m;
     cin >> n >> m;
 
-    int row = m, column = n;
+    // Taking number of rows = m, columns = n
     vector<int> v;
 
     for (int i = 1; i <= (n / 2); i++)      
@@ -74,8 +74,7 @@ void sarthak()
         }
     }
 
-    row -= (m / 2) * 2;
-    if(row)
+    if(m % 2)
     {
         int i = (m / 2) + 1;
         for (int j = 1; j <= (n / 2); j++)
@@ -85,8 +84,7 @@ void sarthak()
         }
     }
 
-    column -= (n / 2) * 2;
-    if(column)
+    if(n % 2)
     {
         int j = (n / 2) + 1;
         for (int i = 1; i <= (m / 2); i++)
