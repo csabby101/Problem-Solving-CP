@@ -75,7 +75,7 @@ void sarthak()
 
     vector<pair<int, int> > vc = {MP(1, m), MP(n, 1), MP(n, m), MP(1, 1)};
 
-    int badpair = 0;
+    int minsteps = INT_MAX;
     vector<pair<int, int> > steps;
 
     for (int k = 0; k < 4; k++)
@@ -86,29 +86,16 @@ void sarthak()
         {
             int i_s = diff_i / a, j_s = diff_j / b;
             if ((i_s + j_s) % 2 == 0)
-                steps.PB(MP(i_s, j_s));
-            else
-                badpair++;
+                minsteps = min(minsteps, max(abs(i_s), abs(j_s)));
         }
-        else
-            badpair++;
     }
-
-    // debug(steps);
-    // debug(badpair);
     
-    if (badpair == 4)
+    if (minsteps == INT_MAX)
     {
         cout << "Poor Inna and pony!";
         return;
     }
 
-    int minsteps = INT_MAX;
-
-    for (auto &p : steps)
-    {
-        minsteps = min(minsteps, max(abs(p.F), abs(p.S)));
-    }
     cout << minsteps;
 }
 
