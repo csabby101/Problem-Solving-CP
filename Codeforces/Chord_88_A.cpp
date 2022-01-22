@@ -41,8 +41,8 @@ void _print(bool t) {cerr << (t ? "true" : "false");}
 
 template <class T, class V> void _print(pair <T, V> p);
 template <class T> void _print(vector <T> v);
-template <class T> void _print(set <T> v);template <class T> void _print(unordered_set <T> v);
-template <class T, class V> void _print(map <T, V> v);template <class T, class V> void _print(unordered_map <T, V> v);
+template <class T> void _print(set <T> v); template <class T> void _print(unordered_set <T> v);
+template <class T, class V> void _print(map <T, V> v); template <class T, class V> void _print(unordered_map <T, V> v);
 template <class T> void _print(multiset <T> v);
 template <class T, class V> void _print(pair <T, V> p) {cerr << "{"; _print(p.F); cerr << ","; _print(p.S); cerr << "}";}
 template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
@@ -59,47 +59,43 @@ template <class T, class V> void _print(unordered_map <T, V> v) {cerr << "[ "; f
 void sarthak()
 {
     vector<string> v =  {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "B", "H"};
+    vector<int> vi;
+    string s;
 
-    vector<string> vi(3);
-    vector<int> s;
     for (int i = 0; i < 3; i++)
     {
-        cin >> vi[i];
+        cin >> s;
         for (int j = 0; j < 12; j++)
         {
-            if(vi[i] == v[j])
-                s.PB(j + 1);
+            if (s == v[j])
+            {
+                vi.PB(j); 
+                vi.PB(j + 12);
+                break;
+            }
         }
     }
-    sort(s.begin(), s.end());
+    sort(vi.begin(), vi.end());
 
     for (int i = 0; i < 3; i++)
-    {   
-        int d1 = 0, d2 = 0;
-        if(s[i] > s[(i + 1) % 3])
-            d1 = 12 - abs(s[i] - s[(i + 1) % 3]);
-        else
-            d1 = abs(s[i] - s[(i + 1) % 3]);
-        
-        if(s[(i + 1) % 3] > s[(i + 2) % 3])
-            d2 = 12 - abs(s[(i + 1) % 3] - s[(i + 2) % 3]);
-        else
-            d2 = abs(s[(i + 1) % 3] - s[(i + 2) % 3]);
+    {
+        int d1 = vi[i + 1] - vi[i];
+        int d2 = vi[i + 2] - vi[i + 1];
 
-        if(d1 == 4 && d2 == 3)
+        if (d1 == 4 && d2 == 3)
         {
             cout << "major";
             return;
         }
 
-        else if (d1 == 3 && d2 == 4)
+        if (d1 == 3 && d2 == 4)
         {
             cout << "minor";
             return;
         }
     }
 
-    cout << "strange"; 
+    cout << "strange";
 }
 
 /*___________________________________________________________________________________________________________________________*/
@@ -112,22 +108,14 @@ int main()
 
     ios::sync_with_stdio(false); cin.tie(NULL);
     auto start = high_resolution_clock::now();
-/*___________________________________________________________________________________________________________________________*/
-
-    // int t;
-    // cin >> t;
-
-    // while (t--)
-    // {
-    //     sarthak();
-    // }
+    /*___________________________________________________________________________________________________________________________*/
 
     sarthak();
 
-/*____________________________________________________________________________________________________________________________*/
+    /*____________________________________________________________________________________________________________________________*/
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
 #ifndef ONLINE_JUDGE
-    cerr << "\n-----------------" << "\nTime : " << duration.count()/1000000.0000 << " s" << endl;
+    cerr << "\n-----------------" << "\nTime : " << duration.count() / 1000000.0000 << " s" << endl;
 #endif
 }
