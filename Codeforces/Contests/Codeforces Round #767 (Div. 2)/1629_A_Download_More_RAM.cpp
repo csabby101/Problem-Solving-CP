@@ -62,15 +62,10 @@ void sarthak()
     int n, k;
     cin >> n >> k;
 
-    vector<int> a(n);
-    vector<pair<int, int> > v;
-    int x;
-    REP(n) cin >> a[i];
-    REP(n) 
-    {
-        cin >> x;
-        v.PB(MP(a[i], x));
-    }
+    vector<pair<int, int> > v(n);
+    
+    REP(n) cin >> v[i].F;
+    REP(n) cin >> v[i].S;
 
     sort(v.begin(), v.end());
 
