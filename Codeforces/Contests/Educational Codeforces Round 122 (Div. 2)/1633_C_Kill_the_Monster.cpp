@@ -66,18 +66,11 @@ void sarthak()
     int k, a, h;
     cin >> k >> a >> h;
 
-    ll try_c = ceil(h_m * 1.00 / a_c);
-    ll try_m = ceil(h_c * 1.00 / a_m);
-
-    if (try_c <= try_m)
-    {
-        cout << "YES" << endl;
-        return;
-    }
+    ll try_c, try_m;
 
     for (int i = 0; i <= k; i++)
     {
-        int u_a = a_c + (a * (k - i)), u_h = h_c + (h * i);
+        ll u_a = a_c + (a * (k - i)), u_h = h_c + (h * i);
 
         try_c = ceil(h_m * 1.00 / u_a);
         try_m = ceil(u_h * 1.00 / a_m);
