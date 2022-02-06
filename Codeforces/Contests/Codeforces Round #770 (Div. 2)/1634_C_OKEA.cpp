@@ -1,4 +1,4 @@
-// problem link : https://codeforces.com/contest/1634/problem/C
+// problem link : 
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -74,22 +74,22 @@ void sarthak()
         return; 
     }
 
-    int eve_pointer = 0, odd_pointer = 0;
+    int eve_pointer = 1, odd_pointer = 1;
 
     cout << "YES" << endl;
     
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
         for (int j = 0; j < k; j++)
         {
-            if((i + 1) % 2)
+            if(i % 2)
             {
-                cout << (2 * odd_pointer) + 1 << ' ';
+                cout << (2 * odd_pointer) - 1 << ' ';
                 odd_pointer++;
             }
             else
             {
-                cout << 2 * (eve_pointer + 1) << ' ';
+                cout << 2 * eve_pointer << ' ';
                 eve_pointer++;
             }
         }
