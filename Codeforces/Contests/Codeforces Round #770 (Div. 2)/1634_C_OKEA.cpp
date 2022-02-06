@@ -70,9 +70,13 @@ void sarthak()
         return;
     } 
 
+    if(n % 2)
+    {
+        cout << "NO" << endl;
+        return; 
+    }
+
     int eve_pointer = 0, odd_pointer = 0;
-    int max_eve = (n * k) / 2, max_odd = ((n * k) + 1) / 2;
-    debug(max_eve); debug(max_odd);
     
     for (int i = 0; i < n; i++)
     {
@@ -81,21 +85,11 @@ void sarthak()
             if((i + 1) % 2)
             {
                 v[i][j] = (2 * odd_pointer) + 1;
-                if(v[i][j] > n * k)
-                {
-                    cout << "NO" << endl;
-                    return;
-                }
                 odd_pointer++;
             }
             else
             {
                 v[i][j] = 2 * (eve_pointer + 1);
-                if(v[i][j] > n * k)
-                {
-                    cout << "NO" << endl;
-                    return;
-                }
                 eve_pointer++;
             }
         }
@@ -103,12 +97,10 @@ void sarthak()
 
     cout << "YES" << endl;
 
-    for (int i = 0; i < n; i++)
+    for(auto &shelf : v)
     {
-        for (int j = 0; j < k; j++)
-        {
-            cout << v[i][j] << ' ';
-        }
+        for(auto &price : shelf)
+            cout << price << ' ';
         cout << endl;
     }
 }
