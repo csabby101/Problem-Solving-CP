@@ -61,8 +61,6 @@ void sarthak()
     int n, k;
     cin >> n >> k;
 
-    vector<vector<int> > v(n, vector<int> (k, 0));
-
     if(k == 1)
     {
         cout << "YES" << endl;
@@ -77,6 +75,8 @@ void sarthak()
     }
 
     int eve_pointer = 0, odd_pointer = 0;
+
+    cout << "YES" << endl;
     
     for (int i = 0; i < n; i++)
     {
@@ -84,23 +84,15 @@ void sarthak()
         {
             if((i + 1) % 2)
             {
-                v[i][j] = (2 * odd_pointer) + 1;
+                cout << (2 * odd_pointer) + 1 << ' ';
                 odd_pointer++;
             }
             else
             {
-                v[i][j] = 2 * (eve_pointer + 1);
+                cout << 2 * (eve_pointer + 1) << ' ';
                 eve_pointer++;
             }
         }
-    }
-
-    cout << "YES" << endl;
-
-    for(auto &shelf : v)
-    {
-        for(auto &price : shelf)
-            cout << price << ' ';
         cout << endl;
     }
 }
