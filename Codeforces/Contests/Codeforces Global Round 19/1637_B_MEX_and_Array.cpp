@@ -65,16 +65,21 @@ void sarthak()
 
     ll ans = 0, freq = 0;
 
+    // greedy approach to get max cost of any subsegment --> partitioning each subsegment into individual elements
+
     for (int i = 1; i <= n; i++)
     {
         int x;
         cin >> x;
 
-        freq = i * (n - i + 1);
+        freq = i * (n - i + 1);  
+        // Example, if n = 3, sequence of freq of occurance of elements in all possible subsegments is 1*3, 2*2, 3*1 
+        // if n = 4, the sequence of freq is 1*4, 2*3, 3*2, 4*1
+
         if(x == 0)
-            ans += 2 * freq;
+            ans += 2 * freq;  // 0 contributes --> 1 + mex(0) = 1 + 1  = 2
         else
-            ans += freq;
+            ans += freq;      // any number greater than 0 contributes --> 1 + mex(x) = 1 + 0 = 1
     }
     cout << ans << endl;
 }
